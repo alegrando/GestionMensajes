@@ -48,7 +48,7 @@ public class GuardarMensajes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        BDMensajes.connect("192.168.200.101", "mensajes_db", "root", "root");
+        BDMensajes.connect("192.168.200.101", "bd_mensajes", "root", "root");
         
         String action = request.getParameter("action");
         logger.fine("action = " + action);

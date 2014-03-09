@@ -43,7 +43,12 @@ public class BDMensajes {
                 createDatabase(databaseServer, databaseName, databaseUser, databasePassword);
                 Logger.getLogger(BDMensajes.class.getName()).log(Level.FINE,
                         "Database created");
-                createTables();
+                try {
+                    conexion = DriverManager.getConnection(strConection, databaseUser, databasePassword); 
+                    createTables();
+                } catch (SQLException ex1) {
+                    Logger.getLogger(BDMensajes.class.getName()).log(Level.SEVERE, null, ex1);
+                }
             }
             Logger.getLogger(BDMensajes.class.getName()).log(Level.SEVERE, null, ex);
         }
